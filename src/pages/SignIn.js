@@ -1,9 +1,38 @@
 import React from 'react';
-import { Container, Grid, Panel, Row, Col, Button, Icon } from 'rsuite';
+import firebase from 'firebase/app';
+import { Container, Grid, Panel, Row, Col, Button, Icon, Alert } from 'rsuite';
+import { auth, database } from '../misc/firebase';
 
 
-const SignIn = () => (
+const SignIn = () => {
+
+      const signInWithProvider = async (provider) => {
+
+
+        try {
+            const { additionalUserInfo, user }  = await auth.signInWithPopup(provider);
+
+            if(additionalUserInfo.isNewUser){
+                await database.ref(`/profiles/${user.uid}`).set({
+                    name: user.displayName,
+                    createdAt: firebase.database.ServerValue.TIMESTAMP
+                });
+            }
+            Alert.success('Signed in', 4000);
+        } catch(err) {
+            Alert.info(err.message, 4000);
+        }
+        
+    };
+
+     const onFacebookSignIn = () => {
+        signInWithProvider( new firebase.auth.FacebookAuthProvider() )
+    };
+    const onGoogleSignIn = () => {
+        signInWithProvider( new firebase.auth.GoogleAuthProvider() )
+    }; 
     
+    return (
         <Container>
             <Grid className="mt-page">
                 <Row>
@@ -14,10 +43,10 @@ const SignIn = () => (
                                 <p>Progressive Chat Platform</p>
                             </div>
                             <div className="mt-3">
-                                <Button block color="blue">
+                                <Button block color="blue" onClick={onFacebookSignIn}>
                                     <Icon icon="facebook" /> Continue with Facebook
                                 </Button>
-                                <Button block color="green">
+                                <Button block color="green" onClick={onGoogleSignIn}>
                                     <Icon icon="google" /> Continue with Google
                                 </Button>
                             </div>
@@ -26,7 +55,7 @@ const SignIn = () => (
                 </Row>
             </Grid>
         </Container>
-    
-    );
+    ); 
+};
 
 export default SignIn;
