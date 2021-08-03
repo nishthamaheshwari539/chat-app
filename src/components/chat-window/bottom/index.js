@@ -96,7 +96,7 @@ const Bottom = () => {
         <AttachmentBtnModal afterUpload={afterUpload} />
         <AudioMsgBtn afterUpload={afterUpload} />
         <Input
-          placeholder="write a new message here ..."
+          placeholder="Write a new Message here ..."
           value={input}
           onChange={onInputChange}
           onKeyDown={onKeyDown}

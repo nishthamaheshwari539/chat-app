@@ -85,7 +85,7 @@ const AvatarUploadBtn = () => {
           htmlFor="avatar-upload"
           className="d-block cursor-pointer padded"
         >
-          select new avatar
+          Select New Avatar
           <input
             id="avatar-upload"
             type="file"
@@ -97,7 +97,7 @@ const AvatarUploadBtn = () => {
 
         <Modal show={isOpen} onHide={close}>
           <Modal.Header>
-            <Modal.Title>Adjust and upload new avatar</Modal.Title>
+            <Modal.Title>Adjust and Upload New Avatar</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="d-flex justify-content-center align-items-center h-100">
@@ -121,7 +121,7 @@ const AvatarUploadBtn = () => {
               onClick={onUploadClick}
               disabled={isLoading}
             >
-              Upload new Avatar
+              Upload New Avatar
             </Button>
           </Modal.Footer>
         </Modal>

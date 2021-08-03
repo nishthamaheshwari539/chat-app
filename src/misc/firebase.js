@@ -1,17 +1,20 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/database'
+import 'firebase/database';
+import 'firebase/storage';
 
 const config = {
-    apiKey: "AIzaSyDcwoYL58qYr_Qgs0JF92aH7yX1GroFR28",
-    authDomain: "chat-web-app-581c0.firebaseapp.com",
-    databaseURL: "https://chat-web-app-581c0-default-rtdb.firebaseio.com",
-    projectId: "chat-web-app-581c0",
-    storageBucket: "chat-web-app-581c0.appspot.com",
-    messagingSenderId: "998274567484",
-    appId: "1:998274567484:web:99262f5a46ab3b6cf5e239",
+  apiKey: 'AIzaSyCyfc0wwF1_h15FOqZA2ZF_jpeeESUbEf0',
+  authDomain: 'chat-web-app-425f7.firebaseapp.com',
+  databaseURL: 'https://chat-web-app-425f7-default-rtdb.firebaseio.com',
+  projectId: 'chat-web-app-425f7',
+  storageBucket: 'chat-web-app-425f7.appspot.com',
+  messagingSenderId: '931835060990',
+  appId: '1:931835060990:web:07fdabe9389135be963baf',
 };
 
 const app = firebase.initializeApp(config);
+
 export const auth = app.auth();
 export const database = app.database();
+export const storage = app.storage();

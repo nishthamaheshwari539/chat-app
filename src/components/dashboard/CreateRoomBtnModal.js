@@ -1,14 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import {
-  Button,
-  Modal,
-  Form,
-  FormControl,
-  FormGroup,
-  Icon,
-  ControlLabel,
-  Schema,
-  Alert,
+import { Button,Modal, Form, FormControl, FormGroup, Icon, ControlLabel, Schema, Alert,
 } from 'rsuite';
 import firebase from 'firebase/app';
 import { useModalState } from '../../misc/custom-hooks';
@@ -16,8 +7,8 @@ import { auth, database } from '../../misc/firebase';
 
 const { StringType } = Schema.Types;
 const model = Schema.Model({
-  name: StringType().isRequired('chat name is required'),
-  description: StringType().isRequired('description is required'),
+  name: StringType().isRequired('Chat name is required'),
+  description: StringType().isRequired('Description is required'),
 });
 const INITIAL_FORM = {
   name: '',
@@ -99,7 +90,7 @@ const CreateRoomBtnModal = () => {
             onClick={onSubmit}
             disabled={isLoading}
           >
-            create new chat room
+            Create New Chat Room
           </Button>
         </Modal.Footer>
       </Modal>

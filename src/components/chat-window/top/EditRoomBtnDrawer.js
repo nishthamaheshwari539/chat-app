@@ -19,7 +19,7 @@ const EditRoomBtnDrawer = () => {
       .child(key)
       .set(value)
       .then(() => {
-        Alert.success('successfully updated', 4000);
+        Alert.success('Successfully Updated', 4000);
       })
       .catch(err => {
         Alert.error(err.message, 4000);

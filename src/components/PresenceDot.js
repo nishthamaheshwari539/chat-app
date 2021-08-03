@@ -6,7 +6,8 @@ const getColor = presence => {
   if (!presence) {
     return 'gray';
   }
-  switch (presence.state) {
+  switch (presence.state) // ye presence.state database se dekha
+   {
     case 'online':
       return 'green';
     case 'offline':
